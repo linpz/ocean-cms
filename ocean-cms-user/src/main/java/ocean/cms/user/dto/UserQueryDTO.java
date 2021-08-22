@@ -3,7 +3,7 @@ package ocean.cms.user.dto;
 import lombok.Data;
 
 @Data
-public class UserDTO {
+public class UserQueryDTO {
     private String name;
-    private String password;
+    private Integer status;
 }
