@@ -1,9 +1,9 @@
 package ocean.cms.user.service.impl;
 
-import io.kms.entity.User;
-import io.kms.mapper.UserMapper;
-import io.kms.service.UserService;
-import io.kms.common.base.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import ocean.cms.user.entity.User;
+import ocean.cms.user.mapper.UserMapper;
+import ocean.cms.user.service.UserService;
 import org.springframework.stereotype.Service;
 
 /**

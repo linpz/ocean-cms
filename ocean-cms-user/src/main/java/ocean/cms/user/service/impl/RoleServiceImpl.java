@@ -1,9 +1,9 @@
 package ocean.cms.user.service.impl;
 
-import io.kms.entity.Role;
-import io.kms.mapper.RoleMapper;
-import io.kms.service.RoleService;
-import io.kms.common.base.ServiceImpl;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import ocean.cms.user.entity.Role;
+import ocean.cms.user.mapper.RoleMapper;
+import ocean.cms.user.service.RoleService;
 import org.springframework.stereotype.Service;
 
 /**

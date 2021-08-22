@@ -1,7 +1,7 @@
 package ocean.cms.user.service;
 
-import io.kms.entity.ArticleContent;
-import io.kms.common.base.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
+import ocean.cms.user.entity.ArticleContent;
 
 /**
  * <p>

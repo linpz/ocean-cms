@@ -1,7 +1,8 @@
 package ocean.cms.user.mapper;
 
-import io.kms.entity.UserRole;
-import io.kms.common.base.BaseMapper;
+
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import ocean.cms.user.entity.UserRole;
 
 /**
  * <p>

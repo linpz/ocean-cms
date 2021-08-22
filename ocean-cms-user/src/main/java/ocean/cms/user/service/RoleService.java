@@ -1,7 +1,7 @@
 package ocean.cms.user.service;
 
-import io.kms.entity.Role;
-import io.kms.common.base.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
+import ocean.cms.user.entity.Role;
 
 /**
  * <p>

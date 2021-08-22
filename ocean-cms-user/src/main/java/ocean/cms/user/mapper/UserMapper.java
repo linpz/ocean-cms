@@ -1,7 +1,7 @@
 package ocean.cms.user.mapper;
 
-import io.kms.entity.User;
-import io.kms.common.base.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import ocean.cms.user.entity.User;
 
 /**
  * <p>
