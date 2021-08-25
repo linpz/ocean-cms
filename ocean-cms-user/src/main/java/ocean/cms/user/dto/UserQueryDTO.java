@@ -6,4 +6,6 @@ import lombok.Data;
 public class UserQueryDTO {
     private String name;
     private Integer status;
+    private Long size;
+    private Long current;
 }

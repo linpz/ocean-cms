@@ -4,6 +4,8 @@ package ocean.cms.user.controller.manage;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.plugins.pagination.PageDto;
 import ocean.cms.user.dto.UserAddDTO;
 import ocean.cms.user.dto.UserQueryDTO;
 import ocean.cms.user.entity.User;
@@ -38,6 +40,23 @@ public class UserController {
                 .eq(StringUtils.isNotBlank(userQueryDTO.getName()), User::getName, userQueryDTO.getName())
                 .eq(userQueryDTO.getStatus()!=null, User::getStatus, userQueryDTO.getStatus());
         return userService.list(wrapper);
+    }
+
+    @GetMapping("page")
+    public Page<User> page(UserQueryDTO userQueryDTO) {
+        Long current = userQueryDTO.getCurrent();
+        Long size = userQueryDTO.getSize();
+        if (current == null) {
+            current = 1L;
+        }
+        if (size == null) {
+            size = 10L;
+        }
+        PageDto<User> pageDTO = new PageDto<>(current, size);
+        LambdaQueryWrapper<User> wrapper = Wrappers.lambdaQuery(User.class)
+                .eq(StringUtils.isNotBlank(userQueryDTO.getName()), User::getName, userQueryDTO.getName())
+                .eq(userQueryDTO.getStatus()!=null, User::getStatus, userQueryDTO.getStatus());
+        return userService.page(pageDTO, wrapper);
     }
 
     @PostMapping("create")
