@@ -1,0 +1,38 @@
+server:
+  port: 10000
+
+spring:
+  application:
+    name: ocean-cms-gateway
+  cloud:
+    nacos:
+      discovery:
+        namespace: ocean-cms
+        group: dev
+        server-addr: 127.0.0.1:8848
+    inetutils:
+      preferred-networks: 10
+    gateway:
+      routes:
+        - id: websocket-s
+          predicates:
+            - Path=/resource/ws
+          uri: lb://ocean-cms-resource
+          filters:
+            - StripPrefix=1
+#        - id: websocket
+#          predicates:
+#            - Path=/resource/ws
+#          uri: lb:ws://ocean-cms-resource
+#          filters:
+#            - StripPrefix=1
+        - id: websocket-api
+          predicates:
+            - Path=/resource/*
+          uri: lb://ocean-cms-resource
+          filters:
+            - StripPrefix=1
+
+logging:
+  level:
+    root: debug

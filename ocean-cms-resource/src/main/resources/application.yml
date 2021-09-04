@@ -1,0 +1,14 @@
+server:
+  port: 9999
+
+spring:
+  application:
+    name: ocean-cms-resource
+  cloud:
+    nacos:
+      discovery:
+        namespace: ocean-cms
+        group: dev
+        server-addr: 127.0.0.1:8848
+    inetutils:
+      preferred-networks: 10
