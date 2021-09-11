@@ -1,8 +1,13 @@
 package ocean.cms.user.controller.manage;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import ocean.cms.user.dto.ArticleQueryDTO;
 import ocean.cms.user.entity.Article;
 import ocean.cms.user.service.ArticleService;
+import ocean.cms.user.vo.ArticleVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,12 +27,13 @@ import java.util.List;
 @RequestMapping("/manage/article")
 public class ArticleController {
 
-
     @Autowired
     ArticleService articleService;
 
     @GetMapping("list")
-    public List<Article> list() {
-        return articleService.list();
+    public List<ArticleVO> list(ArticleQueryDTO articleQueryDTO) {
+        return articleService.list(articleQueryDTO.getTitle(), articleQueryDTO.getContent());
     }
+
+
 }

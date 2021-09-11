@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ocean.cms.user.mapper.ArticleMapper">
+
+    <select id="list" resultType="ocean.cms.user.vo.ArticleVO">
+        select * from kms_article_ a left join kms_article_content_ c on a.article_content_id_ = c.id_
+        <where>
+            <if test="title != null">
+                and a.title_ = #{title}
+            </if>
+            <if test="content != null">
+                and c.content like "%"#{content}"%"
+            </if>
+        </where>
+    </select>
+
+</mapper>

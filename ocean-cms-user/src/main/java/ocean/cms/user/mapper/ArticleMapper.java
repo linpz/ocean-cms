@@ -2,6 +2,10 @@ package ocean.cms.user.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import ocean.cms.user.entity.Article;
+import ocean.cms.user.vo.ArticleVO;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * <p>
@@ -13,4 +17,5 @@ import ocean.cms.user.entity.Article;
  */
 public interface ArticleMapper extends BaseMapper<Article> {
 
+    List<ArticleVO> list(@Param("title") String title, @Param("content") String content);
 }
